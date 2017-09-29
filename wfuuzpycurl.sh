@@ -25,11 +25,13 @@ https://gist.github.com/aerickson/f15133a7e56b2d7f27e3
 echo -e "$RESET\n"
 
 if grep -Fxq "deb-src http://http.kali.org/kali kali-rolling main non-free contrib" /etc/apt/sources.list
-then echo "deb-src http://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/apt/sources.list
-else echo "repository already exists ;)" 
+then echo ""
+else echo "deb-src http://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/apt/sources.list 
 fi
 
 sudo apt-get update
+
+cd /tmp
 
 # remove eventually existing pycurl
 header "0. remove python-pycurl"
@@ -39,10 +41,10 @@ header "1. install build essentials"
 sudo apt-get install build-essential fakeroot dpkg-dev --yes
 
 header "2./3. make build dir"
-mkdir ~/python-pycurl-openssl
-cd ~/python-pycurl-openssl
+mkdir /tmp/python-pycurl-openssl
+cd /tmp/python-pycurl-openssl
 
-if [ ! "$HOME/python-pycurl-openssl" = `pwd` ]; then
+if [ ! "/tmp/python-pycurl-openssl" = `pwd` ]; then
     echo -e "\n${RED}Cannot change to working dir. WTF?${RESET}\n"
     exit 1
 fi
