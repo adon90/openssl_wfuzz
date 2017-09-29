@@ -2,17 +2,9 @@
 
 #
 #   How to rebuild PycURL against OpenSSL on Ubuntu
-#   (tested for 14.04.2 now)
-#
-#   This script implements the great Gist by aerickson:
-#   https://gist.github.com/aerickson/f15133a7e56b2d7f27e3
-#   feel free to use it anyway you like.
-#   Credits go to Andrew anyway :)
-#
+#   (tested for 14.04.2 and Kali Rolling)
 
 
-# we will add some colored headers that make it easier to find obstacles 
-# in the terminal output (which will be > 1000 lines...)
 ESC="\x1b["
 RESET=$ESC"39;49;00m"
 RED=$ESC"31;01m"
